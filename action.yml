@@ -1,11 +1,10 @@
-name: 'Your name here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'Copy labels from Github issue to pull request'
+description: 'This Github action copies all the labels from the issue to the linked PR'
+author: 'Arpit Mohan'
 inputs:
-  milliseconds: # change this
-    required: true
-    description: 'input description here'
-    default: 'default value if applicable'
+  pr-id: # change this
+    required: false
+    description: 'The ID of the PR that was updated'
 runs:
   using: 'node12'
   main: 'dist/index.js'

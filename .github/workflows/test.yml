@@ -23,10 +23,10 @@ jobs:
           GITHUB_BRANCH_REFERENCE=${GITHUB_REF};
           echo "Github Ref: ${GITHUB_REF}";
           echo "Github Branch Ref: ${{github.ref}}";
-          echo ::set-output name=react_app_env::PRODUCTION
-          if [[ "${{github.ref}}" == "/refs/heads/main" ]]; then
+          
+          if [[ "${{github.base_ref}}" == "main" || "${{github.ref}}" == "refs/heads/main" ]]; then
               echo "In the main"
-              echo "::set-output name=react_app_env::MAIN"
+              echo "::set-output name=react_app_env::main"
           fi
 
           if [[ "${{github.base_ref}}" == "main" || "${{github.ref}}" == "refs/heads/main" ]]; then

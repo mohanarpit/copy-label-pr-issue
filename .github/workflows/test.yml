@@ -28,8 +28,8 @@ jobs:
               echo "In the main"
               echo "::set-output name=REACT_APP_ENVIRONMENT::MAIN"
           fi
-          
-          if [[ "${{github.base_ref}}" == "master" || "${{github.ref}}" == "refs/heads/master" ]]; then
+
+          if [[ "${{github.base_ref}}" == "main" || "${{github.ref}}" == "refs/heads/main" ]]; then
             echo "::set-output name=gcloud_project::my-project-dev"
             echo "::set-output name=phase::staging"
           fi

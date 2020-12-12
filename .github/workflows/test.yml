@@ -18,7 +18,9 @@ jobs:
       - name: Set the build environment based on the branch
         id: vars
         shell: bash
-        run: ./setenv.sh
+        run: |
+          ls -al && 
+          ./setenv.sh
 
 
       - name: Echo the build environment

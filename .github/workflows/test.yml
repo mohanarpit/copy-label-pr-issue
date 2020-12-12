@@ -23,10 +23,10 @@ jobs:
           GITHUB_BRANCH_REFERENCE=${GITHUB_REF};
           echo "Github Ref: ${GITHUB_REF}";
           echo "Github Branch Ref: ${{github.ref}}";
-          echo ::set-output name=REACT_APP_ENVIRONMENT::PRODUCTION
+          echo ::set-output name=react_app_env::PRODUCTION
           if [[ "${{github.ref}}" == "/refs/heads/main" ]]; then
               echo "In the main"
-              echo "::set-output name=REACT_APP_ENVIRONMENT::MAIN"
+              echo "::set-output name=react_app_env::MAIN"
           fi
 
           if [[ "${{github.base_ref}}" == "main" || "${{github.ref}}" == "refs/heads/main" ]]; then
@@ -35,7 +35,7 @@ jobs:
           fi
 
       - name: Echo the build environment
-        run: echo ${{steps.vars.outputs.REACT_APP_ENVIRONMENT}} && echo ${{steps.vars.outputs.gcloud_project}}
+        run: echo ${{steps.vars.outputs.react_app_env}} && echo ${{steps.vars.outputs.gcloud_project}}
 
       # - run: |
       #     npm install

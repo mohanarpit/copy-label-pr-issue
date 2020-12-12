@@ -21,13 +21,14 @@ jobs:
         run: |
           REACT_APP_ENVIRONMENT="DEVELOPMENT";
           echo "Github Ref: ${GITHUB_REF}";
-          if [ ${GITHUB_REF} == '/refs/heads/main' ]; then
-              echo "In the main"
-              echo ::set-output name=REACT_APP_ENVIRONMENT::PRODUCTION
-          elif [ ${GITHUB_REF} == '/refs/heads/release' ]; then
-              echo "In the release"
-              echo ::set-output name=REACT_APP_ENVIRONMENT::STAGING
-          fi
+          echo ::set-output name=REACT_APP_ENVIRONMENT::PRODUCTION
+          # if [ ${GITHUB_REF} == '/refs/heads/main' ]; then
+          #     echo "In the main"
+          #     echo ::set-output name=REACT_APP_ENVIRONMENT::PRODUCTION
+          # elif [ ${GITHUB_REF} == '/refs/heads/release' ]; then
+          #     echo "In the release"
+          #     echo ::set-output name=REACT_APP_ENVIRONMENT::STAGING
+          # fi
 
       - name: Echo the build environment
         run: echo ${{steps.vars.outputs.REACT_APP_ENVIRONMENT}}

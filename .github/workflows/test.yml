@@ -28,7 +28,10 @@ jobs:
               echo "In the main"
               echo "::set-output name=REACT_APP_ENVIRONMENT::MAIN"
           fi
-
+          if [[ "${{github.base_ref}}" == "releases" || "${{github.ref}}" == "refs/heads/releases" ]]; then
+              echo "In the release branch"
+              echo "::set-output name=REACT_APP_ENVIRONMENT::RELEASE"
+          fi
           if [[ "${{github.base_ref}}" == "main" || "${{github.ref}}" == "refs/heads/main" ]]; then
             echo "::set-output name=gcloud_project::my-project-dev"
             echo "::set-output name=phase::staging"

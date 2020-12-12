@@ -24,11 +24,11 @@ jobs:
           echo "Github Ref: ${GITHUB_REF}";
           echo "Github Branch Ref: ${{github.ref}}";
           
-          if [[ "${{github.base_ref}}" == "main" || "${{github.ref}}" == "refs/heads/main" ]]; then
+          if [[ "${{github.ref}}" == "refs/heads/main" ]]; then
               echo "In the main"
               echo "::set-output name=REACT_APP_ENVIRONMENT::MAIN"
           fi
-          if [[ "${{github.base_ref}}" == "releases" || "${{github.ref}}" == "refs/heads/releases" ]]; then
+          if [[ "${{github.ref}}" == "refs/heads/releases" ]]; then
               echo "In the release branch"
               echo "::set-output name=REACT_APP_ENVIRONMENT::RELEASE"
           fi
